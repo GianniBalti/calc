@@ -18,7 +18,9 @@ function divide(a,b) {
         return a/b
     } else {
         alert("STOP IT!");
-        return "A blackhole has been created!"
+        clearScreen();
+        resultScreen.innerText = "Don't do that again!";
+        console.log(resultScreen.innerText);
     }
 }
 
@@ -125,7 +127,14 @@ function updateScreen() {
                 checkOperation();
 
             }else {
-                updateArgs(input);
+                if (resultScreen.innerText !== "") {
+                    clearScreen();
+                    updateArgs(input);
+                }
+                else {
+                    updateArgs(input);
+                }
+                
             }            
         })
         
@@ -151,12 +160,19 @@ function roundTo3decimalsMax(halfProduct){
 //Checks the operation and handles the result
 function checkOperation() {
     if (prevNumber.innerText !== '' && operator.innerText !== '' && curNumber.innerText !== '') {
+        //let result = operate(operator.innerText, prevNumber.innerText, curNumber.innerText);
+        
         let result = roundTo3decimalsMax(operate(operator.innerText, prevNumber.innerText, curNumber.innerText));
-        curNumber.innerText = "";
-        prevNumber.innerText = "";
-        operator.innerText = "";
-        resultScreen.innerText = result
-        console.log(result);
+        if (isNaN(result)) {
+            resultScreen.innerText = "This is not a number!";
+        } else  {
+            curNumber.innerText = "";
+            prevNumber.innerText = "";
+            operator.innerText = "";
+            resultScreen.innerText = result
+            console.log(result);
+        }
+        
         //return;
     }
 }
