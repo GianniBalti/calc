@@ -53,6 +53,7 @@ let operator = document.getElementById("operatorDiv");
 let resultScreen = document.getElementById("resultScreen");
 
 
+
 function updateScreen() {
 
     //looping over all the calc buttons and doing the neccesary action according to the input
@@ -163,8 +164,15 @@ function checkOperation() {
         //let result = operate(operator.innerText, prevNumber.innerText, curNumber.innerText);
         
         let result = roundTo3decimalsMax(operate(operator.innerText, prevNumber.innerText, curNumber.innerText));
-        if (isNaN(result)) {
-            resultScreen.innerText = "This is not a number!";
+        if (result === 777) {
+            curNumber.innerText = "";
+            prevNumber.innerText = "";
+            operator.innerText = "";
+            resultScreen.innerText = result
+            console.log("hey you hit the secret jackpot, you win eternal glory")
+            console.log(result);
+            //document.getElementById("outputScreen").style.backgroundColor = "gold";
+            //outputScreen.style.border = "solid 1px gold";
         } else  {
             curNumber.innerText = "";
             prevNumber.innerText = "";

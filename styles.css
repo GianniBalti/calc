@@ -44,6 +44,7 @@ body {
 .output {
     grid-column: 1 / -1;
     background-color: black;
+    border: 1px white solid;
     display: flex;
     padding: 10px;
     flex-direction: column;
@@ -71,4 +72,17 @@ body {
 .output .result-operand {
     color: white;
     font-size: 3rem;
+}
+
+.golden-border {
+    grid-column: 1 / -1;
+    background-color: black;
+    border: 1px gold solid;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    word-wrap: break-word;
+    word-break: break-all;
 }
