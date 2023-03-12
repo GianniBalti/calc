@@ -212,3 +212,10 @@ function main() {
 }
 
 main();
+
+/* To Do List:
+
+Make chaining operations possible ex: 5+3-4=4
+Add some hidden feature
+
+*/
